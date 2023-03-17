@@ -1,9 +1,9 @@
 import os
 import re
 import sys
+import Valid_Logins
 
 PATTERN = re.compile(r"^[\w\-\.]+@([\w\-]+\.)+[\w\-]{2,4}$")
-CORRECT_PASSWORD = "q"
 
 def match(PATTERN: re.Pattern, input: str) -> bool:
   if re.fullmatch(string=input, pattern=PATTERN):
@@ -43,15 +43,10 @@ def timeout(seconds_before_timeout):
 @timeout(60)
 def get_password(email: str):
   while True:
-    i = input("Please enter your password: ")
+    i = input("Please make a password: ")
     os.system("cls")
     print("Email: ", email)
 
-    if CORRECT_PASSWORD == i:
-      print("Login correct!")
-      break
-    else:
-      print("Login incorrect.")
 
 def main():
   
